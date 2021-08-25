@@ -1,34 +1,6 @@
 // Hostile User design concept
 
-var capLetters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-var lowLetters = [
+var letters = [
   "a",
   "b",
   "c",
@@ -55,6 +27,32 @@ var lowLetters = [
   "x",
   "y",
   "z",
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
 ];
 
 createFirstNameForm();
@@ -85,9 +83,6 @@ function createFirstNameForm() {
 document.getElementById("fn-submit").addEventListener("click", function () {
   var inputElement = document.getElementById("fn-input");
 
-  // LOGGING TO REMVOE
-  console.log(`You have ${inputElement.value} letters in your first name`);
-
   // Check if value is a number before proceeding
   if (!isNaN(inputElement.value)) {
     generateSliders(inputElement.value);
@@ -104,8 +99,6 @@ function removeElementsByID(elementID) {
 
 // Placeholder logic
 function generateSliders(input) {
-  // LOGGING TO REMVOE
-  console.log(input);
 
   // Clean up div that will be used to generate the sliders in
   removeElementsByID("hostile-form-div");
@@ -125,12 +118,16 @@ function generateSliders(input) {
   nameSpan.setAttribute("id", "name-span");
   previewLabel.appendChild(nameSpan);
 
+  var lineBreak = document.createElement('br');
+  container.appendChild(lineBreak);
+  container.appendChild(lineBreak);
+
   // Generate X number of slider & label elements
   for (let i = 0; i < input; i++) {
     var newSlider = document.createElement("input");
     newSlider.setAttribute("type", "range");
     newSlider.setAttribute("min", "0");
-    newSlider.setAttribute("max", "25");
+    newSlider.setAttribute("max", "51");
     newSlider.setAttribute("value", "0");
     newSlider.setAttribute("class", "slider");
     newSlider.setAttribute("id", `range-${i}`);
@@ -157,24 +154,20 @@ function updateSliderLabel(element) {
   // Get related label element based on slider ID No.
   var label = document.getElementById(`slider-label-${sliderIDNo}`);
   // Get letter
-  var letter = lowLetters[element.value];
+  var letter = letters[element.value];
   // Update label based on slider value
   label.innerText = letter;
 }
 
 function updatePreviewSpan(element) {
   var preview = document.getElementById("name-span");
-
   var letterLabels = document.getElementsByClassName('slider-label');
+  var name = "";
 
-  console.log(letterLabels);
-  console.log(letterLabels[0]);
-  console.log(letterLabels[1]);
-
-  var name = "Place_Holder";
+  for (let i = 0; i < letterLabels.length; i++) {
+    let letter = letterLabels[i].innerText;
+    name = name + letter;
+  }
 
   preview.innerText = name;
-
-  return console.log(`Name: ${name}`);
-
 }
