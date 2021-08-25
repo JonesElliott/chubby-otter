@@ -5,7 +5,7 @@ createFirstNameForm();
 // Generates form to ask for user's first name
 function createFirstNameForm() {
   // Set first name question
-  var container = document.getElementById("hostile-register-div");
+  var container = document.getElementById("hostile-form-div");
   var question = document.createElement("h3");
   question.innerText = "How many letters are in your first name?";
   container.prepend(question);
@@ -31,12 +31,44 @@ document.getElementById("fn-submit").addEventListener("click", function () {
   generateSliders(inputElement.value);
 });
 
+function removeElementsByID(elementID) {
+  var element = document.getElementById(elementID);
+  while (element.firstChild) {
+    element.removeChild(element.lastChild);
+  }
+}
+
 // Placeholder logic
-function generateSliders(element) {
-  var inputValue = element.value;
-  if (Number.isNaN(inputValue)) {
+function generateSliders(input) {
+  console.log(input);
+  if (Number.isNaN(input)) {
     return;
   }
-  console.log(element);
-  console.log(`Hello!`);
+
+  removeElementsByID("hostile-form-div");
+
+  // Set instructions
+  var container = document.getElementById("hostile-form-div");
+  var question = document.createElement("h3");
+  question.innerText = "Please enter your name below";
+  container.prepend(question);
+
+  for (let i = 0; i < input; i++) {
+    var newSlider = document.createElement("input");
+    newSlider.setAttribute("type", "range");
+    newSlider.setAttribute("min", "0");
+    newSlider.setAttribute("max", "25");
+    newSlider.setAttribute("value", "0");
+    newSlider.setAttribute("class", "slider");
+    newSlider.setAttribute("id", `range${i}`);
+
+    var newLabel = document.createElement("label");
+    newLabel.setAttribute("class", "slider-label");
+    newLabel.setAttribute("id", `slider-label-${i}`);
+    newLabel.innerText = newSlider.value;
+
+    container.appendChild(newSlider);
+    container.appendChild(newLabel);
+  }
+
 }
