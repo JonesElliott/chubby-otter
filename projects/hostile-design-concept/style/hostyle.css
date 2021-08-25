@@ -4,6 +4,10 @@
   padding: 10px;
 }
 
+#fn-submit {
+    margin-left: 10px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
