@@ -116,6 +116,15 @@ function generateSliders(input) {
   question.innerText = "Please enter your name below";
   container.prepend(question);
 
+  var previewLabel = document.createElement("label");
+  previewLabel.setAttribute("id", "preview-label");
+  previewLabel.innerText = "Name Preview: ";
+  container.appendChild(previewLabel);
+
+  var nameSpan = document.createElement("span");
+  nameSpan.setAttribute("id", "name-span");
+  previewLabel.appendChild(nameSpan);
+
   // Generate X number of slider & label elements
   for (let i = 0; i < input; i++) {
     var newSlider = document.createElement("input");
@@ -136,6 +145,7 @@ function generateSliders(input) {
     // On slider input, update corresponding label
     newSlider.oninput = function () {
       updateSliderLabel(this);
+      updatePreviewSpan(this);
     };
   }
 }
@@ -150,4 +160,21 @@ function updateSliderLabel(element) {
   var letter = lowLetters[element.value];
   // Update label based on slider value
   label.innerText = letter;
+}
+
+function updatePreviewSpan(element) {
+  var preview = document.getElementById("name-span");
+
+  var letterLabels = document.getElementsByClassName('slider-label');
+
+  console.log(letterLabels);
+  console.log(letterLabels[0]);
+  console.log(letterLabels[1]);
+
+  var name = "Place_Holder";
+
+  preview.innerText = name;
+
+  return console.log(`Name: ${name}`);
+
 }
