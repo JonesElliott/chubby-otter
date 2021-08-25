@@ -1,5 +1,62 @@
 // Hostile User design concept
 
+var capLetters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+var lowLetters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
 createFirstNameForm();
 
 // Generates form to ask for user's first name
@@ -37,6 +94,7 @@ document.getElementById("fn-submit").addEventListener("click", function () {
   }
 });
 
+// Remove all children of an element
 function removeElementsByID(elementID) {
   var element = document.getElementById(elementID);
   while (element.firstChild) {
@@ -77,17 +135,19 @@ function generateSliders(input) {
 
     // On slider input, update corresponding label
     newSlider.oninput = function () {
-        updateSliderLabel(this)
+      updateSliderLabel(this);
     };
   }
 }
 
 // Update label dynamically to reflect slider value
 function updateSliderLabel(element) {
-    // Get slider element ID No.
-    var sliderIDNo = element.id.split('range-').pop();
-    // Get related label element based on slider ID No.
-    var label = document.getElementById(`slider-label-${sliderIDNo}`);
-    // Update label based on slider value
-    label.innerText = element.value;
+  // Get slider element ID No.
+  var sliderIDNo = element.id.split("range-").pop();
+  // Get related label element based on slider ID No.
+  var label = document.getElementById(`slider-label-${sliderIDNo}`);
+  // Get letter
+  var letter = lowLetters[element.value];
+  // Update label based on slider value
+  label.innerText = letter;
 }
