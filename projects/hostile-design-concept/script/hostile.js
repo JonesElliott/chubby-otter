@@ -106,7 +106,7 @@ function generateSliders(input) {
   // Set instructions
   var container = document.getElementById("hostile-form-div");
   var question = document.createElement("h3");
-  question.innerText = "Please enter your name below";
+  question.innerText = "Please enter your name using the sliders below";
   container.prepend(question);
 
   var previewLabel = document.createElement("label");
@@ -115,12 +115,12 @@ function generateSliders(input) {
   container.appendChild(previewLabel);
 
   var nameSpan = document.createElement("span");
-  nameSpan.setAttribute("id", "name-span");
+  nameSpan.setAttribute('id', 'name-span');
   previewLabel.appendChild(nameSpan);
 
-  var lineBreak = document.createElement('br');
-  container.appendChild(lineBreak);
-  container.appendChild(lineBreak);
+  var sliderDiv = document.createElement('div');
+  sliderDiv.setAttribute('id', 'slider-div');
+  container.appendChild(sliderDiv);
 
   // Generate X number of slider & label elements
   for (let i = 0; i < input; i++) {
@@ -136,8 +136,8 @@ function generateSliders(input) {
     newLabel.setAttribute("class", "slider-label");
     newLabel.setAttribute("id", `slider-label-${i}`);
 
-    container.appendChild(newSlider);
-    container.appendChild(newLabel);
+    sliderDiv.appendChild(newSlider);
+    sliderDiv.appendChild(newLabel);
 
     // On slider input, update corresponding label
     newSlider.oninput = function () {
