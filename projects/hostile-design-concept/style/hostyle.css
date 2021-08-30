@@ -1,20 +1,20 @@
-.center {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
+.absolute-center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #fn-submit {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 #slider-div {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .slider-label {
-    margin-left: 5px;
-    margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 body {

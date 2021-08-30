@@ -60,23 +60,23 @@ createFirstNameForm();
 // Generates form to ask for user's first name
 function createFirstNameForm() {
   // Set first name question
-  var container = document.getElementById("hostile-form-div");
+  var containerInstructions = document.getElementById("hostile-form-instructions");
   var question = document.createElement("h3");
   question.innerText = "How many letters are in your first name?";
-  container.prepend(question);
+  containerInstructions.prepend(question);
 
   // Create input box
   var inputBox = document.createElement("input");
   inputBox.setAttribute("class", "first-name-form");
   inputBox.setAttribute("id", "fn-input");
-  container.appendChild(inputBox);
+  containerInstructions.appendChild(inputBox);
 
   // create button
   var submitButton = document.createElement("button");
   submitButton.setAttribute("class", "first-name-form");
   submitButton.setAttribute("id", "fn-submit");
   submitButton.innerText = "Submit";
-  container.appendChild(submitButton);
+  containerInstructions.appendChild(submitButton);
 }
 
 // Event listener for first name button click
@@ -101,18 +101,20 @@ function removeElementsByID(elementID) {
 function generateSliders(input) {
 
   // Clean up div that will be used to generate the sliders in
-  removeElementsByID("hostile-form-div");
+  removeElementsByID("hostile-form-input");
+  removeElementsByID("hostile-form-instructions");
 
   // Set instructions
-  var container = document.getElementById("hostile-form-div");
+  var containerInstructions = document.getElementById("hostile-form-instructions");
+  var containerInput = document.getElementById("hostile-form-input");
   var question = document.createElement("h3");
   question.innerText = "Please enter your name using the sliders below";
-  container.prepend(question);
+  containerInstructions.prepend(question);
 
   var previewLabel = document.createElement("label");
   previewLabel.setAttribute("id", "preview-label");
   previewLabel.innerText = "Name Preview: ";
-  container.appendChild(previewLabel);
+  containerInstructions.appendChild(previewLabel);
 
   var nameSpan = document.createElement("span");
   nameSpan.setAttribute('id', 'name-span');
@@ -120,7 +122,7 @@ function generateSliders(input) {
 
   var sliderDiv = document.createElement('div');
   sliderDiv.setAttribute('id', 'slider-div');
-  container.appendChild(sliderDiv);
+  containerInput.appendChild(sliderDiv);
 
   // Generate X number of slider & label elements
   for (let i = 0; i < input; i++) {
