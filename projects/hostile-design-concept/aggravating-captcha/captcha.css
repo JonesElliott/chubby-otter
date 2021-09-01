@@ -1,0 +1,27 @@
+.captcha-container {
+  border-radius: 5%;
+  background-color: lightgrey;
+  border-color: #808080;
+  width: 50%;
+  margin: auto;
+  height: 200px;
+}
+
+.captcha-text-box {
+  border: thick black;
+  background-color: white;
+  width: 50;
+  margin: auto;
+  height: 35%;
+}
+
+.captcha-text {
+  color: black;
+  text-align: center;
+  letter-spacing: 10px;
+}
+
+.captcha-submit-form {
+  margin: auto;
+  text-align: center;
+}
