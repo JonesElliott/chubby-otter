@@ -63,20 +63,20 @@ function countDown() {
 
     if (countLeft === 0) {
       clearInterval(setCountTimer);
-      countDown();
+      if(!valid){
+        countDown();
+      }
     }
   }, 1000);
-}
-
-function captchaValidation() {
-
 }
 
 document.getElementById("fn-captcha-button").addEventListener("click", function (event) {
   const inputText = document.getElementById("fn-captcha-input");
 
   if (inputText.value.toLowerCase() == snu.innerText.toLowerCase()) {
-    console.log("you done did it");
+    valid = true;
+    snu.innerText = "You did it!";
+    inputText.value = "";
   }
   else{
     inputText.value = "";
@@ -84,5 +84,5 @@ document.getElementById("fn-captcha-button").addEventListener("click", function 
   }
   event.preventDefault()
 });
-
-snu.innerText = CaptchaJumble(5);
+countDown();
+// snu.innerText = CaptchaJumble(5);
