@@ -72,15 +72,15 @@ function createFirstNameForm() {
   containerInstructions.appendChild(inputBox);
 
   // create button
-  var submitButton = document.createElement("button");
-  submitButton.setAttribute("class", "first-name-form");
-  submitButton.setAttribute("id", "fn-submit");
-  submitButton.innerText = "Submit";
-  containerInstructions.appendChild(submitButton);
+  var submitFNNumButton = document.createElement("button");
+  submitFNNumButton.setAttribute("class", "first-name-form");
+  submitFNNumButton.setAttribute("id", "fn-num-submit");
+  submitFNNumButton.innerText = "Submit";
+  containerInstructions.appendChild(submitFNNumButton);
 }
 
-// Event listener for first name button click
-document.getElementById("fn-submit").addEventListener("click", function () {
+// Event listener for first name num button click
+document.getElementById("fn-num-submit").addEventListener("click", function () {
   var inputElement = document.getElementById("fn-input");
 
   // Check if value is a number before proceeding
@@ -111,15 +111,25 @@ function generateSliders(input) {
   question.innerText = "Please enter your name using the sliders below";
   containerInstructions.prepend(question);
 
+  // Create preview label
   var previewLabel = document.createElement("label");
   previewLabel.setAttribute("id", "preview-label");
   previewLabel.innerText = "Name Preview: ";
   containerInstructions.appendChild(previewLabel);
 
+  // Span that will display name preview
   var nameSpan = document.createElement("span");
   nameSpan.setAttribute('id', 'name-span');
   previewLabel.appendChild(nameSpan);
 
+  // Submit button for first name
+  var submitFNButton = document.createElement("button");
+  submitFNButton.setAttribute("class", "first-name-form");
+  submitFNButton.setAttribute("id", "fn-submit");
+  submitFNButton.innerText = "Submit";
+  containerInstructions.appendChild(submitFNButton);
+
+  // Creating container div for sliders
   var sliderDiv = document.createElement('div');
   sliderDiv.setAttribute('id', 'slider-div');
   containerInput.appendChild(sliderDiv);
@@ -147,6 +157,15 @@ function generateSliders(input) {
       updatePreviewSpan(this);
     };
   }
+
+  // Event listener for first name button click
+  document.getElementById("fn-submit").addEventListener("click", function () {
+    var inputElement = document.getElementById("name-span");
+
+    console.log(`Your name is: ${inputElement.innerText}`);
+    createLastNameForm();
+  });
+
 }
 
 // Update label dynamically to reflect slider value
@@ -172,4 +191,11 @@ function updatePreviewSpan(element) {
   }
 
   preview.innerText = name;
+}
+
+function createLastNameForm() {
+  // Clean up div that will be used to generate the sliders in
+  removeElementsByID("hostile-form-input");
+  removeElementsByID("hostile-form-instructions");
+
 }
