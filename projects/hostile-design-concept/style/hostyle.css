@@ -1,7 +1,16 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
 .absolute-center {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.page-title {
+  margin-left: 5%;
 }
 
 #last-name-canvas {
