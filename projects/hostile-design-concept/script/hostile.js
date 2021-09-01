@@ -1,5 +1,3 @@
-// Hostile User design concept
-
 var letters = [
   "a",
   "b",

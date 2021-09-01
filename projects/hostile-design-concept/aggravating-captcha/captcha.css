@@ -1,4 +1,4 @@
-#captcha-container {
+.captcha-container {
   border-radius: 5%;
   background-color: lightgrey;
   border-color: #808080;
@@ -7,7 +7,7 @@
   height: 200px;
 }
 
-#captcha-text-box {
+.captcha-text-box {
   border: thick, black;
   background-color: white;
   width: 50;
@@ -15,13 +15,13 @@
   height: 35%;
 }
 
-#captcha-text {
+.captcha-text {
   color: black;
   text-align: center;
   letter-spacing: 10px;
 }
 
-#captcha-submit-form {
+.captcha-submit-form {
   margin: auto;
   text-align: center;
 }
