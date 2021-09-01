@@ -3,6 +3,7 @@
   background-color: lightgrey;
   border-color: #808080;
   width: 50%;
+  margin: auto;
   height: 200px;
 }
 
@@ -10,6 +11,7 @@
   border: thick, black;
   background-color: white;
   width: 50;
+  margin: auto;
   height: 35%;
 }
 
