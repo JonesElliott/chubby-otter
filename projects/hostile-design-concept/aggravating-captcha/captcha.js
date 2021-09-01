@@ -1,4 +1,4 @@
-var letters = [
+const letters = [
   "A",
   "B",
   "C",
@@ -37,8 +37,9 @@ var letters = [
   "9",
 ];
 
-var snu = document.getElementById("captcha-text");
+let snu = document.getElementById("captcha-text");
 
+let valid = false
 
 function ranNum(max) {
   return Math.floor(Math.random() * max);
@@ -55,9 +56,9 @@ function CaptchaJumble(length) {
 // Timer that counts down
 function countDown() {
   snu.innerText = CaptchaJumble(5);
-  var countLeft = 3;
+  let countLeft = 3;
 
-  var setCountTimer = setInterval(function () {
+  let setCountTimer = setInterval(function () {
     countLeft--;
 
     if (countLeft === 0) {
@@ -70,5 +71,18 @@ function countDown() {
 function captchaValidation() {
 
 }
+
+document.getElementById("fn-captcha-button").addEventListener("click", function (event) {
+  const inputText = document.getElementById("fn-captcha-input");
+
+  if (inputText.value.toLowerCase() == snu.innerText.toLowerCase()) {
+    console.log("you done did it");
+  }
+  else{
+    inputText.value = "";
+    snu.innerText = CaptchaJumble(5);
+  }
+  event.preventDefault()
+});
 
 snu.innerText = CaptchaJumble(5);
