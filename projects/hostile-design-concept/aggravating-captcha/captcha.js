@@ -39,7 +39,7 @@ const letters = [
 
 let snu = document.getElementById("captcha-text");
 
-let valid = false
+let valid = false;
 
 function ranNum(max) {
   return Math.floor(Math.random() * max);
@@ -63,26 +63,27 @@ function countDown() {
 
     if (countLeft === 0) {
       clearInterval(setCountTimer);
-      if(!valid){
+      if (!valid) {
         countDown();
       }
     }
   }, 1000);
 }
 
-document.getElementById("fn-captcha-button").addEventListener("click", function (event) {
-  const inputText = document.getElementById("fn-captcha-input");
-
-  if (inputText.value.toLowerCase() == snu.innerText.toLowerCase()) {
-    valid = true;
-    snu.innerText = "You did it!";
-    inputText.value = "";
-  }
-  else{
-    inputText.value = "";
-    snu.innerText = CaptchaJumble(5);
-  }
-  event.preventDefault()
-});
+document
+  .getElementById("fn-captcha-button")
+  .addEventListener("click", function (event) {
+    const inputText = document.getElementById("fn-captcha-input");
+    if (!valid) {
+      if (inputText.value.toLowerCase() == snu.innerText.toLowerCase()) {
+        valid = true;
+        snu.innerText = "You did it!";
+        inputText.value = "";
+      } else {
+        inputText.value = "";
+        snu.innerText = CaptchaJumble(5);
+      }
+    }
+    event.preventDefault();
+  });
 countDown();
-// snu.innerText = CaptchaJumble(5);
