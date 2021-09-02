@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../frustrating-forms/style/forms.css" />
-    <link rel="stylesheet" href="captcha.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <title>CO: Annoying Captcha</title>
-  </head>
 
-  <body>
-    <header>
-      <div class="page-title">
-        <h1>Hostile User Design</h1>
-        <h3 class="description">
-          This page is a concept based on hostile architecture
-        </h3>
-      </div>
-      <div class="navbar">
-        <a href="../../../index.html">Home</a>
-        <!-- <a href="#news">News</a> -->
-        <div class="dropdown">
-          <button class="dropbtn">Hostile UX <i class="fa fa-caret-down"></i></button>
-          <div class="dropdown-content">
-            <a href="../frustrating-forms/forms.html">Frustrating Forms</a>
-            <a href="../combative-captcha/captcha.html">Combative Captcha</a>
-            <a href="#">About</a>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../frustrating-forms/style/forms.css" />
+  <link rel="stylesheet" href="./style/captcha.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>CO: Combative Captcha</title>
+</head>
+
+<body>
+  <header>
+    <div class="page-title">
+      <h1>Hostile User Design</h1>
+      <h3 class="description">
+        This page is a concept based on hostile architecture
+      </h3>
+    </div>
+    <div class="navbar">
+      <a href="../../../index.html">Home</a>
+      <!-- <a href="#news">News</a> -->
+      <div class="dropdown">
+        <button class="dropbtn">Hostile UX <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="../frustrating-forms/forms.html">Frustrating Forms</a>
+          <a href="../combative-captcha/captcha.html">Combative Captcha</a>
+          <a href="#">About</a>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section class="absolute-center">
-      <h1>This is a really annoying captcha</h1>
-      <article>
-        <div class="captcha-container">
-          <div class="captcha-text-box">
-            <h2 class="captcha-text" id="captcha-text">XCS2DT</h2>
-          </div>
-          <form class="captcha-submit-form">
-            <h3>I am not a robot!</h3>
-            <input type="text" id="fn-captcha-input" />
-            <button type="submit" id="fn-captcha-button">Submit</button>
-          </form>
-        </div>
-      </article>
-    </section>
-  </body>
-  <script src="captcha.js"></script>
+  <section class="absolute-center">
+    <h1>Please verify that you are not a robot</h1>
+    <article class="captcha-container">
+      <div class="captcha-text-box">
+        <h2 class="captcha-text" id="captcha-text">XCS2DT</h2>
+      </div>
+      <form class="captcha-submit-form">
+        <h3>I am not a robot!</h3>
+        <input type="text" id="fn-captcha-input" />
+        <button type="submit" id="fn-captcha-button">Submit</button>
+      </form>
+    </article>
+  </section>
+</body>
+<script src="./script/captcha.js"></script>
+
 </html>
