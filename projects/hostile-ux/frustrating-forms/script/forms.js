@@ -134,6 +134,7 @@ function generateSliders(input) {
 
   // Generate X number of slider & label elements
   for (let i = 0; i < input; i++) {
+    // Slider element
     var newSlider = document.createElement("input");
     newSlider.setAttribute("type", "range");
     newSlider.setAttribute("min", "0");
@@ -142,10 +143,12 @@ function generateSliders(input) {
     newSlider.setAttribute("class", "slider");
     newSlider.setAttribute("id", `range-${i}`);
 
+    // Label element for each slider
     var newLabel = document.createElement("label");
     newLabel.setAttribute("class", "slider-label");
     newLabel.setAttribute("id", `slider-label-${i}`);
 
+    // Add new sliders to page
     sliderDiv.appendChild(newSlider);
     sliderDiv.appendChild(newLabel);
 
@@ -160,8 +163,7 @@ function generateSliders(input) {
   document.getElementById("fn-submit").addEventListener("click", function () {
     var inputElement = document.getElementById("name-span");
 
-    console.log(`Your name is: ${inputElement.innerText}`);
-    createLastNameForm();
+    createLastNameForm(inputElement.innerText);
   });
 
 }
@@ -178,6 +180,7 @@ function updateSliderLabel(element) {
   label.innerText = letter;
 }
 
+// Update preview name with each slider input
 function updatePreviewSpan(element) {
   var preview = document.getElementById("name-span");
   var letterLabels = document.getElementsByClassName('slider-label');
@@ -191,9 +194,77 @@ function updatePreviewSpan(element) {
   preview.innerText = name;
 }
 
-function createLastNameForm() {
+// Create form for last name input - Hold onto your butts
+function createLastNameForm(first) {
+
   // Clean up div that will be used to generate the sliders in
   removeElementsByID("hostile-form-input");
   removeElementsByID("hostile-form-instructions");
 
+  var containerInstructions = document.getElementById("hostile-form-instructions");
+  var containerInput = document.getElementById("hostile-form-input");
+
+  // Set instructions
+  var question = document.createElement("h3");
+  question.innerText = `${first}, please write your last name with your mouse`;
+  containerInstructions.prepend(question);
+
+  // Submit button for first name
+  var submitLNButton = document.createElement("button");
+  submitLNButton.setAttribute("class", "first-name-form");
+  submitLNButton.setAttribute("id", "fn-submit");
+  submitLNButton.innerText = "Submit";
+  containerInstructions.appendChild(submitLNButton);
+
+  // create canvas element and append it to document body
+  var canvas = document.createElement('canvas');
+  canvas.setAttribute('id', 'last-name-canvas');
+  containerInput.append(canvas);
+
+  // get canvas 2D context and set him correct size
+  var ctx = canvas.getContext('2d');
+  resize();
+
+  // last known position
+  var pos = { x: 0, y: 0 };
+
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', draw);
+  document.addEventListener('mousedown', setPosition);
+  document.addEventListener('mouseenter', setPosition);
+
+  // Gets canvas offset from top and left of window so to set drawing position the same as mouse position
+  var offsetTop = document.getElementById('last-name-canvas').offsetTop;
+  var offsetLeft = document.getElementById('last-name-canvas').offsetLeft;
+
+  // new position from mouse event
+  function setPosition(e) {
+    pos.x = e.clientX - offsetLeft;
+    pos.y = e.clientY - offsetTop;
+  }
+
+  // resize canvas
+  function resize() {
+    ctx.canvas.width = window.innerWidth / 1.5;
+    ctx.canvas.height = window.innerHeight / 2;
+  }
+
+  function draw(e) {
+    // mouse left button must be pressed
+    if (e.buttons !== 1) return;
+
+    ctx.beginPath(); // begin
+
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#16264c';
+
+    ctx.moveTo(pos.x, pos.y); // from
+    setPosition(e);
+    ctx.lineTo(pos.x, pos.y); // to
+
+    ctx.stroke(); // draw it!
+  }
+
 }
+
