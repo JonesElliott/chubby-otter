@@ -1,0 +1,52 @@
+.page-title {
+  margin-left: 5%;
+}
+
+.captcha-container {
+  border-radius: 5%;
+  background-color: lightgrey;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #808080;
+  width: 300px;
+  margin: 50px auto;
+  height: 250px;
+}
+
+.captcha-text-box {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+  height: 35%;
+}
+
+.captcha-text {
+  color: black;
+  text-align: center;
+  padding: 20px 10px;
+  letter-spacing: 10px;
+}
+
+.captcha-submit-form {
+  margin: auto;
+  text-align: center;
+}
+
+.loader-wheel {
+  border: 5px solid lightgrey;
+  border-radius: 50%;
+  border-top: 5px solid #606060;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
