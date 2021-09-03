@@ -70,7 +70,7 @@ function CaptchaJumble(length) {
 // Three second timer that will invoke the CaptchaJumble as long as valid is false
 function CaptchaTimer() {
   snu.innerText = CaptchaJumble(5);
-  let countLeft = 3;
+  let countLeft = 30;
 
   let setCountTimer = setInterval(function () {
     countLeft--;
